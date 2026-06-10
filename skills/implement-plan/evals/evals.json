@@ -1,0 +1,35 @@
+{
+  "skill_name": "implement-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "implement milestone 1 from plan/user-stories.md with an agent team",
+      "expected_output": "Preflight subagent runs (worktree round-trip, baseline build/test, plan check) and creates the integration branch + worktree; a team is created with one task per story carrying the acceptance criteria verbatim; the lead makes zero file edits and zero build/git calls itself (except plan/implementation-state.md); each story goes implement → Verifier + Architect gates → serialized merge into implement/<slug>/integration; final report lists gate verdicts and says the integration branch is ready for review.",
+      "files": ["needs a fixture repo with docs (Architecture.md, DomainModel.md), plan/design.md and a plan/user-stories.md milestone of 2-3 small stories (one backend, one frontend)"]
+    },
+    {
+      "id": 2,
+      "prompt": "before we use implement-plan on the real project, can you smoke test that the agent team setup works on this machine?",
+      "expected_output": "Preflight runs; a throwaway team implement-smoke is created; one implementer completes a no-op story in a worktree; a fresh Verifier gates it; everything is torn down (worktree, branch, teammates, team) and a capability checklist is reported. No leftover branches/worktrees/files.",
+      "files": ["any small git repo with a green build"]
+    },
+    {
+      "id": 3,
+      "prompt": "here's the plan for the rate-limiter feature, please build it: 1. add a token-bucket limiter to the middleware pipeline, 2. make limits configurable per route, 3. return 429 with a Retry-After header when limited",
+      "expected_output": "A pasted plan (no plan/ folder, no acceptance criteria) is normalized: the lead derives minimal Test:/CI:/Check: criteria per item and lists them in the kickoff report before work starts; otherwise the normal team flow runs with the Verifier checking the derived criteria.",
+      "files": ["needs a fixture web-API repo without a plan/ folder"]
+    },
+    {
+      "id": 4,
+      "prompt": "continue implementing the plan",
+      "expected_output": "The lead detects plan/implementation-state.md, reads it plus TaskList for the recorded team, does not redo completed stories, respawns teammates for the in-progress task pointing at the recorded worktree/branch, and continues the delegate-and-gate loop from where the state file says it stopped.",
+      "files": ["needs a fixture mid-implementation: state file with 1 merged story + 1 in-progress story, matching task list under ~/.claude/tasks/<team>/, existing integration branch and story worktree"]
+    },
+    {
+      "id": 5,
+      "prompt": "implement story M2-1 (the admin audit-log export) from the plan — it touches user PII, so be careful",
+      "expected_output": "Besides the always-on Verifier and Architect gates, the Security gate (PII trigger) and — if the docs state audit/retention requirements — the Compliance gate are spawned for this story; the optional-gate decision is recorded in the task description; gate verdicts appear in the final report.",
+      "files": ["needs a fixture repo whose Requirements.md states audit/PII requirements and a plan with story M2-1"]
+    }
+  ]
+}

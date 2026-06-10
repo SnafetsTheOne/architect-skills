@@ -1,0 +1,29 @@
+{
+  "skill_name": "write-e2e-tests",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "set up end-to-end tests for this project. it's an ASP.NET Core web shop (EF Core + Postgres), the app runs with `dotnet run` on http://localhost:5000. we use xUnit for unit tests already. payments go through an external provider we'd need to stub somehow",
+      "expected_output": "An e2e/ project with the four layers (Plumbing/Primitives/Abstractions/Tests), the verified Scenario builder, WireMock for the payment provider, generators, one example test in fluent Given/When/Then style, and a CLAUDE.md in e2e/ documenting the layers with the example test. Solution builds.",
+      "files": ["needs a minimal ASP.NET Core sample shop repo as fixture"]
+    },
+    {
+      "id": 2,
+      "prompt": "add an e2e test: a logged-in customer adds two items to the cart, removes one, and checks out — the order in the db should only contain the remaining item",
+      "expected_output": "A new test in the tests layer written purely in fluent Given/When/Then style with generated data; missing actions (e.g. ui.RemoveFromCart) added to the abstraction layer, not inlined; no selectors/SQL in the test file.",
+      "files": ["needs the scaffolded e2e suite from eval 1 (or a pre-built fixture) as input"]
+    },
+    {
+      "id": 3,
+      "prompt": "we want proper e2e tests for our spring boot app (java 17, maven, junit 5, postgres via jdbc). frontend is served by the same app on :8080. can you scaffold a structure where the tests stay readable and the playwright stuff doesn't leak everywhere?",
+      "expected_output": "An e2e/ Maven module with plumbing (per-facade functional interfaces, eager Scenario), primitives, abstractions, one example test using explicitly typed lambdas, and a CLAUDE.md. Module compiles with mvn test-compile.",
+      "files": ["needs a minimal Spring Boot sample repo as fixture"]
+    },
+    {
+      "id": 4,
+      "prompt": "our next.js shop app needs e2e tests (postgres via prisma, app runs on :3000 with npm run dev). i want BDD-style tests the product owner can actually read",
+      "expected_output": "An e2e/ folder with @playwright/test as runner, the dual-mode-then Scenario harness, facades destructured per step, mockttp for external services, one example spec, and a CLAUDE.md. tsc --strict passes.",
+      "files": ["needs a minimal Next.js sample repo as fixture"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "architect-skills",
+  "owner": { "name": "Stefan Stikovich" },
+  "description": "Stefan's architecture & planning skills for Claude Code.",
+  "plugins": [
+    {
+      "name": "architect",
+      "source": "./",
+      "description": "Architecture & planning skill set: docs, plans, draw.io diagrams, E2E tests, plan implementation with agent teams."
+    }
+  ]
+}

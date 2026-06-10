@@ -1,0 +1,9 @@
+{
+  "name": "architect",
+  "description": "Architecture & planning skill set: maintain SSoT docs, draft roadmaps/design contracts/user stories, generate draw.io diagrams from docs/code/plan, write layered E2E tests, and implement plans with a verified agent team.",
+  "version": "0.1.0",
+  "author": { "name": "Stefan Stikovich" },
+  "homepage": "https://github.com/SnafetsTheOne/architect-skills",
+  "repository": "https://github.com/SnafetsTheOne/architect-skills",
+  "license": "MIT"
+}
