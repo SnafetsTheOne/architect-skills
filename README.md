@@ -1,11 +1,5 @@
 # architect-skills
 
-A Claude Code plugin marketplace publishing Stefan's architecture & planning skills.
-
-The repository is **both a marketplace and the plugin** — `.claude-plugin/marketplace.json`
-lists one plugin (`architect`) whose `source` is this same repo (`./`). The skills live
-under `skills/`.
-
 ## Skills
 
 | Skill | Use for |
